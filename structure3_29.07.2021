@@ -1,0 +1,48 @@
+#include <stdio.h>
+struct employee{
+    int id_429;
+    char name_429[100];
+    int age_429;
+    double basic_429;
+    double da_429;
+    double hra_429;
+    double gross_429;
+};
+int main()
+{
+    int n;
+    printf("Enter the number of employees: ");
+    scanf("%d",&n);
+    struct employee s[n];
+    struct employee *ptr;
+    for(int i=0;i<n;i++)
+    {
+        printf("\nEnter the id of employee %d:",(i+1));
+        scanf("%d",&s[i].id_429);
+        printf("\nEnter the name of employee %d:",(i+1));
+        scanf("%s",s[i].name_429);
+        printf("\nEnter the age of employee %d:",(i+1));
+        scanf(" %d",&s[i].age_429);
+        printf("\nEnter the basic salary of employee %d:",(i+1));
+        scanf("%lf",&s[i].basic_429);
+    }
+    for(int i=0;i<n;i++)
+    {
+        ptr=&s[i];
+        ptr->da_429=(80*ptr->basic_429)/100;
+        ptr->hra_429=(10*ptr->basic_429)/100;
+        ptr->gross_429=ptr->basic_429+ptr->da_429+ptr->hra_429;
+    }
+    for(int i=0;i<n;i++)
+    {
+        ptr=&s[i];
+         printf("\nID of employee %d: %d",(i+1),ptr->id_429);
+        printf("\nNAME of employee %d: %s",(i+1),ptr->name_429);
+        printf("\nAGE of employee %d: %d",(i+1),ptr->age_429);
+        printf("\nBASIC SALARY of employee %d: %.2lf",(i+1),ptr->basic_429);
+        printf("\nDA of employee %d: %.2lf",(i+1),ptr->da_429);
+        printf("\nHRA of employee %d: %.2lf",(i+1),ptr->hra_429);
+        printf("\nGROSS SALARY of employee %d: %.2lf\n\n",(i+1),ptr->gross_429);
+    }
+    return 0;
+}
