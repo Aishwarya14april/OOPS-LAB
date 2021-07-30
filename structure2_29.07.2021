@@ -1,0 +1,97 @@
+#include <stdio.h>
+struct students{
+    char name_429[100];
+    int roll_429;
+    float marks_429[5];
+    float tot_429;
+    float perc_429;
+};
+void percent(struct students s[],int n)
+{
+    for(int i=0;i<n;i++)
+    {
+        int sum=0;
+        for(int j=0;j<5;j++)
+        {
+
+            sum=sum+s[i].marks_429[j];
+            s[i].tot_429=sum;
+            s[i].perc_429=s[i].tot_429/5;
+        }
+    }
+}
+void display(struct students s[],int n)
+{
+    int r_no;
+    printf("\nEnter the roll no. of student whose details are to be displayed: ");
+    scanf("%d",&r_no);
+    for(int i=0;i<n;i++)
+    {
+        if(s[i].roll_429==r_no)
+        {
+            printf("\nNAME: %s\n",s[i].name_429);
+            printf("ROLL: %d\n",s[i].roll_429);
+            for(int j=0;j<5;j++)
+            printf("MARKS: %.2f \n",s[i].marks_429[j]);
+            printf("TOTAL MARKS: %.2f\n",s[i].tot_429);
+            printf("PERCENTAGE: %.2f\n",s[i].perc_429);
+        }
+    }
+}
+void range(struct students s[],int n)
+{
+    int upp_range,low_range;
+    printf("\nEnter the upper range and the lower range: ");
+    scanf("%d %d",&upp_range,&low_range);
+    for(int i=0;i<n;i++)
+    {
+        if(s[i].perc_429<=upp_range && s[i].perc_429>=low_range)
+        {
+            printf("%s\n",s[i].name_429);
+            printf("%d\n",s[i].roll_429);
+            printf("%.2f\n",s[i].perc_429);
+        }
+    }
+}
+void sort(struct students s[],int n)
+{
+    for(int i=0;i<n-1;i++)
+    {
+        for(int j=0;j<n-1;j++)
+        {
+            if(s[j+1].perc_429<s[j].perc_429){
+                int temp=s[j+1].perc_429;
+                s[j+1].perc_429=s[j].perc_429;
+                s[j].perc_429=temp;
+            }
+        }
+    }
+    printf("\nSorted array: ");
+    for(int i=0;i<n;i++)
+    {
+        printf("%.2f ",s[i].perc_429);
+    }
+}
+int main()
+{
+    int n;
+    printf("Enter the no. of students: ");
+    scanf("%d",&n);
+    struct students s[n];
+    for(int i=0;i<n;i++)
+    {
+        printf("\nEnter the name of student %d: ",i+1);
+        scanf("%s",s[i].name_429);
+        printf("\nEnter the roll no of student %d: ",i+1);
+        scanf(" %d",&s[i].roll_429);
+        printf("\nEnter the marks of student %d in 5 subjects: ",i+1);
+        for(int j=0;j<5;j++){
+        scanf("%f",&s[i].marks_429[j]);
+        }
+    }
+    percent(s,n);
+    display(s,n);
+    range(s,n);
+    sort(s,n);
+    return 0;
+}
