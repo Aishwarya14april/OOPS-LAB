@@ -1,0 +1,36 @@
+#include<iostream>
+#include <cmath>
+using namespace std;
+class dist{
+    private:
+    int x,y;
+    double d;
+
+    public:
+    void getdata()
+    {
+        cin>>x;
+        cin>>y;
+    }
+    double diff(dist p,dist q)
+    {
+        d=sqrt((p.x-q.x)*(p.x-q.x)+(p.y-q.y)*(p.y-q.y));
+        return d;
+    }
+    void display()
+    {
+        cout<<d;
+    }
+};
+int main()
+{
+    dist c1,c2,c3;
+    cout<<"\nEnter x,y coordinates of point 1: ";
+    c1.getdata();
+    cout<<"\nEnter x,y coordinates of point 2: ";
+    c2.getdata();
+    c3.diff(c1,c2);
+    cout<<"\nDistance between two points: ";
+    c3.display();
+    return 0;
+}
