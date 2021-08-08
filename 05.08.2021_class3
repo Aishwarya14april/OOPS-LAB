@@ -1,0 +1,47 @@
+#include<iostream>
+using namespace std;
+class student
+{
+    char name[100];
+    int roll;
+    double marks[5];
+    double tot;
+    double perc;
+    public:
+    void getdata()
+    {
+        cout<<"Enter the name: ";
+        cin>>name;
+        cout<<"Enter the roll no: ";
+        cin>>roll;
+        cout<<"Enter the marks in five subjects: ";
+        for(int i=0;i<5;i++)
+        {
+           cin>>marks[i];
+        }
+        for(int i=0;i<5;i++)
+        {
+            tot=tot+marks[i];
+        }
+        perc=tot/5;
+    }
+    void display()
+    {
+        cout<<"NAME: "<<name<<endl;
+        cout<<"ROLL NO: "<<roll<<endl;
+        cout<<"MARKS IN 5 SUBJECTS: ";
+        for(int i=0;i<5;i++)
+        {
+            cout<<marks[i]<<" ";
+        }
+        cout<<"\nTOTAL MARKS: "<<tot<<endl;
+        cout<<"PERCENTAGE: "<<perc<<endl;
+    }
+};
+    int main()
+    {
+        student s;
+        s.getdata();
+        s.display();
+        return 0;
+    }
