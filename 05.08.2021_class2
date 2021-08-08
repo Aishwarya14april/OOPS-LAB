@@ -1,0 +1,32 @@
+#include<iostream>
+using namespace std;
+class student
+{
+    private:
+    char name[100];
+    int roll;
+    double tot;
+    public:
+    void getdata()
+    {
+        cout<<"Enter the name: ";
+        cin>>name;
+        cout<<"\nEnter the roll no: ";
+        cin>>roll;
+        cout<<"\nEnter the total marks: ";
+        cin>>tot;
+    }
+    void display()
+    {
+        cout<<"NAME: "<<name<<endl;
+        cout<<"ROLL: "<<roll<<endl;
+        cout<<"TOTAL MARKS: "<<tot<<endl;
+    }
+};
+int main()
+{
+    student s;
+    s.getdata();
+    s.display();
+    return 0;
+}
