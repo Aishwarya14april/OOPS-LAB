@@ -1,0 +1,50 @@
+#include<iostream>
+using namespace std;
+class bank
+{
+    char name[100];
+    long acc;
+    char type[100];
+    double bal,amt;
+    public:
+    void getdata()
+    {
+        cout<<"Enter name: ";
+        cin>>name;
+        cout<<"\nEnter account number: ";
+        cin>>acc;
+        cout<<"\nEnter account type: ";
+        cin>>type;
+        cout<<"\nEnter account balance: ";
+        cin>>bal;
+    }
+    void deposit()
+    {
+        cout<<"Enter amount to be deposited: ";
+        cin>>amt;
+        bal=bal+amt;
+        cout<<"\nNew Account balance: "<<bal<<endl;
+    }
+    void withdraw()
+    {
+        cout<<"\nAvailable balance: "<<bal<<endl;
+        cout<<"Enter amount to withdrawn: ";
+        cin>>amt;
+        bal=bal-amt;
+        cout<<"\nNew Account balance: "<<bal<<endl;
+    }
+    void display()
+    {
+        cout<<"NAME: "<<name<<endl;
+        cout<<"BALANCE: "<<bal<<endl;
+    }
+};
+int main()
+{
+    bank a;
+    a.getdata();
+    a.deposit();
+    a.withdraw();
+    a.display();
+    return 0;
+}
