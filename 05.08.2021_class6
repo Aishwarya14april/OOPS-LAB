@@ -1,0 +1,36 @@
+#include<iostream>
+using namespace std;
+class dist{
+    private:
+    int ft;
+    int inch;
+    public:
+    void getdata()
+    {
+        cout<<"\nEnter the distance in feet and inch: ";
+        cin>>ft;
+        cin>>inch;
+    }
+    void display()
+    {
+        cout<<"\nTotal distance: "<<endl;
+        cout<<ft<<" feet and "<<inch<<" inches";
+    }
+    dist add(dist q)
+    {
+        dist temp;
+        temp.inch=inch+q.inch;
+        temp.ft=ft+q.ft+(temp.inch/12);
+        temp.inch=inch%12;
+        return temp;
+    }
+};
+int main()
+{
+    dist c1,c2,c3;
+    c1.getdata();
+    c2.getdata();
+    c3=c1.add(c2);
+    c3.display();
+    return 0;
+}
