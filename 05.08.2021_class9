@@ -30,8 +30,14 @@ class bank
         cout<<"\nAvailable balance: "<<bal<<endl;
         cout<<"Enter amount to withdrawn: ";
         cin>>amt;
-        bal=bal-amt;
+     if((bal-amt)<500)
+        cout<<"\nMinimum account balance is less than Rs. 500 ";
+       else	
+      {	
+       bal=bal-amt;
         cout<<"\nNew Account balance: "<<bal<<endl;
+      }
+
     }
     void display()
     {
