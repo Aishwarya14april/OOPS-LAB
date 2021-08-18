@@ -1,0 +1,18 @@
+#include<iostream>
+using namespace std;
+inline int sq (int n)
+{
+  return n*n;
+}
+inline int cube (int n)
+{
+  return n*n*n;
+}
+int main ()
+{
+  int n;
+  cout<<"Enter a number: ";
+  cin>>n;
+  cout<<"\nSquare of the number is: "<<sq(n);
+  cout<<"\nCube of the number is: "<<cube(n);
+}
