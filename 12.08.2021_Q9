@@ -1,0 +1,12 @@
+#include<iostream>
+using namespace std;
+int n=0;
+int main()
+{
+    int n;
+    cout<<"Enter the value of the number: ";
+    cin>>n;
+    cout<<"\nValue of local variable: "<<n;
+    cout<<"\nValue of global variable: "<<::n;
+    return 0;
+}
