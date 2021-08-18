@@ -1,0 +1,14 @@
+#include<iostream>
+using namespace std;
+inline int increase(int n)
+{
+  return ++n;
+}
+int main ()
+{
+  int n;
+  cout<<"Enter a number: ";
+  cin>>n;
+  cout<<"\nIncrement of the number is: "<<increase(n);
+  return 0;
+}
