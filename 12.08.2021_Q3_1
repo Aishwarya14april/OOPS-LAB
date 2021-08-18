@@ -1,16 +1,16 @@
 #include<iostream>
 using namespace std;
-void print(char c,int n=80)
+void print(char c)
 {
-    for(int i=1;i<=n;i++)
+    for(int i=1;i<=80;i++)
     {
         cout<<c<<" ";
     }
     cout<<"\n";
 }
-void print(int n=80)
+void print()
 {
-    for(int i=1;i<=n;i++)
+    for(int i=1;i<=80;i++)
     {
         cout<<"* ";
     }
