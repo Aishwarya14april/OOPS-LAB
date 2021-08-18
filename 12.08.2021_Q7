@@ -1,0 +1,16 @@
+#include<iostream>
+using namespace std;
+int SUM(int a,int b=10,int c=20)
+{
+    int sum=a+b+c;
+    return sum;
+}
+int main()
+{
+    int a,b,c;
+    cout<<"Enter the three numbers: ";
+    cin>>a>>b>>c;
+    cout<<"Sum of three numbers when the first argument is input: "<<SUM(a)<<endl;
+    cout<<"Sum of three numbers when the first and second argument is input: "<<SUM(a,b)<<endl;
+    return 0;
+}
