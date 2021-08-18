@@ -15,4 +15,5 @@ int main ()
   cin>>n;
   cout<<"\nSquare of the number is: "<<sq(n);
   cout<<"\nCube of the number is: "<<cube(n);
+  return 0;
 }
