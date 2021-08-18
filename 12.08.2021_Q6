@@ -1,0 +1,47 @@
+#include<iostream>
+using namespace std;
+class complex{
+    int real;
+    int img;
+    public:
+    void getdata()
+    {
+        cout<<"\nEnter the real value: ";
+        cin>>real;
+        cout<<"\nEnter the imaginary value: ";
+        cin>>img;
+    }
+    void print()
+    {
+        cout<<"\nThe complex no. is: ";
+        cout<<real<<"+i"<<img;
+    }
+    complex add(int a,complex s1)
+    {
+        complex temp;
+        temp.real=a+s1.real;
+        temp.img=s1.img;
+        return temp;
+    }
+    complex add(complex s1,complex s2)
+    {
+        complex temp;
+        temp.real=s1.real+s2.real;
+        temp.img=s1.img+s2.img;
+        return temp;
+    }
+};
+int main()
+{
+    complex s1,s2,s3;
+    int n;
+    s1.getdata();
+    cout<<"\nEnter the real part to be added to the complex no. :";
+    cin>>n;
+    s2.getdata();
+    s3=s3.add(n,s1);
+    s3.print();
+    s3=s3.add(s1,s2);
+    s3.print();
+    return 0;
+}
