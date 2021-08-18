@@ -1,0 +1,32 @@
+#include <iostream>
+using namespace std;
+double vol(double r)
+{
+double vol;
+vol=4/3.0*3.1416*r*r*r;
+return vol;
+}
+double vol(double r, double h) {
+double vol;
+vol=3.1416*r*r*h;
+return vol;
+}
+double vol(double l, double b, double h) {
+double vol;
+vol= l*b*h;
+return vol;
+}
+int main()
+{
+double r,x,y,l,b,h;
+cout<<"Enter the radius of the sphere: ";
+cin>>r;
+cout<<"\nEnter the radius and height of the cylinder: ";
+cin>>x>>y;
+cout<<"\nEnter the length, breadth and height of the cuboid: ";
+cin>>l>>b>>h;
+cout<<"Volume of the sphere is: "<<vol(r)<<endl;
+cout<<"Volume of the cylinder is: "<<vol(x,y)<<endl;
+cout<<"Volume of the cuboid is: "<<vol(l,b,h)<<endl;
+return 0;
+}
