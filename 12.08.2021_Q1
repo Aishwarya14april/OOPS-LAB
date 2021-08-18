@@ -1,0 +1,35 @@
+#include<iostream>
+#include<cmath>
+using namespace std;
+double area(double r)
+{
+    double res=3.14*r*r;
+    return res;
+}
+double area(double l,double d)
+{
+    double res=l*d;
+    return res;
+}
+double area(double a,double b,double c)
+{
+    double s,res;
+    s=(a+b+c)/2;
+    res=sqrt(s*(s-a)*(s-b)*(s-c));
+    return res;
+}
+int main()
+{
+    double r,l,d,a,b,c;
+    cout<<"Enter the radius of the circle: ";
+    cin>>r;
+    cout<<"\nEnter the length and breadth of rectangle: ";
+    cin>>l;
+    cin>>d;
+    cout<<"\nEnter the three sides of a triangle: ";
+    cin>>a>>b>>c;
+    cout<<"\nArea of circle: "<<area(r)<<endl;
+    cout<<"\nArea of rectangle: "<<area(l,d)<<endl;
+    cout<<"\nArea of triangle: "<<area(a,b,c)<<endl;
+    return 0;
+}
