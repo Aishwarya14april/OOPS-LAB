@@ -1,0 +1,40 @@
+#include<iostream>
+using namespace std;
+class B;
+class A 
+{
+    int n1;
+    public:
+    void getdata()
+    {
+        cin>>n1;
+    }
+    friend void swap(A,B);
+};
+class B 
+{
+    int n2;
+    public:
+    void getdata()
+    {
+        cin>>n2;
+    }
+    friend void swap(A,B);
+};
+void swap(A obj1,B obj2)
+{
+    int temp;
+    temp=obj1.n1;
+    obj1.n1=obj2.n2;
+    obj2.n2=temp;
+    cout<<obj1.n1<<" "<<obj2.n2;
+}
+int main()
+{
+    A x;
+    B y;
+    x.getdata();
+    y.getdata();
+    swap(x,y);
+    return 0;
+}
