@@ -1,0 +1,42 @@
+#include<iostream>
+using namespace std;
+class B;
+class A
+{
+ int dataA;
+ public:
+ void getData(int val)
+ {
+ dataA = val;
+ }
+ 
+ void compare(B b);
+};
+class B
+{
+ int dataB;
+ public:
+ void getData(int val)
+ {
+ dataB = val;
+ }
+ friend void A::compare(B b);
+};
+void A::compare(B b)
+ {
+ if(b.dataB > dataA)
+ cout<<"The object of class B stores bigger number.\n";
+ else if(b.dataB < dataA)
+ cout<<"The object of class A stores bigger number.\n";
+ else
+ cout<<"Both store same data.\n";
+ }
+int main()
+{
+ A a;B b;
+ int valA, valB;cin>>valA>>valB;
+ a.getData(valA);
+ b.getData(valB);
+ a.compare(b);
+ return 0;
+}
