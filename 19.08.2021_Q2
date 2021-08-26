@@ -1,0 +1,57 @@
+#include<iostream>
+using namespace std;
+class B;
+class A 
+{
+    double feet;
+    double inch;
+    double sum;
+    public:
+    void getdata()
+    {
+        cin>>feet;
+        cin>>inch;
+    }
+    void convert()
+    {
+    feet=30.48*feet;
+    inch=2.54*inch;
+    sum=feet+inch;
+    }
+    friend int compare(A,B);
+};
+class B 
+{
+    double m;
+    double cm;
+    double sum;
+    public:
+    void getdata()
+    {
+        cin>>m;
+        cin>>cm;
+    }
+    void convert()
+    {
+        m=m*100;
+        sum=m+cm;
+    }
+    friend int compare(A,B);
+};
+int compare(A p,B q)
+{
+    if(p.sum>q.sum)
+    return p.sum;
+    else return q.sum;
+}
+int main()
+{
+    A p;
+    B q;
+    p.getdata();
+    p.convert();
+    q.getdata();
+    q.convert();
+    cout<<compare(p,q);
+    return 0;
+}
