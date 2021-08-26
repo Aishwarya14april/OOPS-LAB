@@ -1,0 +1,37 @@
+#include<iostream>
+using namespace std;
+class test
+{
+    static int in;
+    static int out;
+    int data;
+    public:
+    void input()
+    {
+        cin>>data;
+        ++in;
+    }
+    void output()
+    {
+        ++out;
+        cout<<data;
+    }
+    static int showcount()
+    {
+        cout<<in<<" "<<out;
+    }
+};
+int test::in;
+int test::out;
+int main()
+{
+    test obj1,obj2,obj3;
+    obj1.input();
+    obj2.input();
+    obj3.input();
+    obj1.output();
+    obj2.output();
+    obj3.output();
+    test::showcount();
+    return 0;
+}
