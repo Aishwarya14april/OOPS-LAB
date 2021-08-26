@@ -1,0 +1,42 @@
+#include<iostream>
+using namespace std;
+class complex 
+{
+    int real;
+    int img;
+    public:
+    //dummy constructor
+    complex(void)
+    {
+    }
+    //default constructor
+    complex()
+    {
+        real=5;
+        img=10;
+    }
+    //parameterised constructor
+    complex(int a,int b)
+    {
+        real=a;
+        img=b;
+    }
+    //copy constructor
+    complex(const complex &a)
+    {
+        real=a.real;
+        img=a.img;
+    }
+    void display()
+    {
+        cout<<real<<" "<<img;
+    }
+};
+    int main()
+    {
+        complex c2(10,20);
+        c2.display();
+        complex c3=c2;
+        c3.display();
+        return 0;
+    }
