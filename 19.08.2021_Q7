@@ -1,77 +1,76 @@
 #include<iostream>
 using namespace std;
-class db;
-class dm
+class DB;
+class DM
 {
- float metre,centimetre;
- public:
- void getData(float m, float cm)
- {
- metre = m;
- centimetre = cm;
- }
- void display()
- {
- cout<<metre<<"m "<<centimetre<<"cm\n";
- }
- friend dm add(dm a, db b);
- friend db add(db b, dm a);
+    int m,cm;
+    public:
+    void getdata(int a,int b)
+    {
+        m=a;
+        cm=b;
+    }
+    void display()
+    {
+        cout<<"Meter "<<m<<" and centimeters "<<cm<<endl;
+    }
+    friend DM add1(DM p,DB q);
+    friend DB add2(DM p,DB q);
 };
-class db
-{
- float feet,inches;
- public:
- void getData(float f, float i)
- {
- feet = f;
- inches = i;
- }
- void display()
- {
- cout<<feet<<"\' "<<inches<<"\"\n";
- }
- friend dm add(dm a, db b);
- friend db add(db b, dm a);
+class DB{
+    int feet,inch;
+    public:
+    void getdata(int a,int b)
+    {
+        feet=a;
+        inch=b;
+    }
+    void display()
+    {
+        cout<<"Feet "<<feet<<" and inches "<<inch<<endl;
+    }
+    friend DM add1(DM p,DB q);
+    friend DB add2(DM p,DB q);
 };
-dm add(dm a, db b)
+DM add1(DM p,DB q)
 {
- dm ans;
- float cm = a.centimetre + a.metre*100 + 
-b.feet*12*2.54 + b.inches*2.54;
- float m = (int)cm/100;
- cm = (int)cm % 100;
- ans.metre = m;
- ans.centimetre = cm;
- return ans;
+    DM ans;
+    ans.m=0.3*q.feet+p.m;
+    ans.cm=2.54*q.inch+p.cm;
+    return ans;
 }
-db add(db b, dm a)
+DB add2(DM p,DB q)
 {
- db ans;
- float i = b.inches + b.feet*12 + 
-a.centimetre/2.54 + a.metre*39.37;
- float f = (int)i/12;
- i = (int) % 12;
- ans.feet = f;
- ans.inches = i;
- return ans;
+    DB ans;
+    ans.feet=3.28*p.m+q.feet;
+    ans.inch=0.39*p.cm+q.inch;
+    return ans;
 }
 int main()
 {
- float m,cm,f,i;cin>>m>>cm>>f>>i;
- dm a;db b;
- a.getData(m,cm);
- b.getData(f,i);
- cout<<"Do you want to express the addition in (m & cm) or in (feet & inches) :- (Y/N)\n";
- char check; cin>>check;
- if((char)tolower(check) == 'y')
- {
- a = add(a,b);
- a.display();
- }
- else
- {
- b = add(b,a);
- b.display();
- }
- return 0;
+    DM obj1;
+    DB obj2;
+    int a,b;
+    char ch;
+    cout<<"\nEnter the value in meters and in centimeters: ";
+    cin>>a>>b;
+    obj1.getdata(a,b);
+    cout<<"\nEnter the value in feet and in inches: ";
+    cin>>a>>b;
+    obj2.getdata(a,b);
+    cout<<"\nDo you want to get the result in meters and centimeters?Y/N :";
+    cin>>ch;
+    switch(ch)
+    {
+    case 'Y':
+    case 'y':
+    obj1=add1(obj1,obj2);
+    obj1.display();
+    break;
+    case 'N':
+    case 'n':
+    obj2=add2(obj1,obj2);
+    obj2.display();
+    return 0;
+}
 }
