@@ -33,6 +33,7 @@ int main()
  ABC a;
  XYZ b;
  int p,q;
+ cout<<"Enter the numbers: ";
  cin>>p>>q;
  a.getData(p);
  b.getData(q);
