@@ -1,42 +1,41 @@
 #include<iostream>
 using namespace std;
-class B;
-class A
+class XYZ;
+class ABC
 {
- int dataA;
+ int n1;
  public:
- void getData(int val)
+ void getData(int p)
  {
- dataA = val;
+ n1=p;
  }
- 
- void compare(B b);
+ void compare(XYZ b);
 };
-class B
+class XYZ
 {
- int dataB;
+ int n2;
  public:
- void getData(int val)
+ void getData(int q)
  {
- dataB = val;
+ n2=q;
  }
- friend void A::compare(B b);
+ friend void ABC::compare(XYZ b);
 };
-void A::compare(B b)
+void ABC::compare(XYZ b)
  {
- if(b.dataB > dataA)
- cout<<"The object of class B stores bigger number.\n";
- else if(b.dataB < dataA)
- cout<<"The object of class A stores bigger number.\n";
- else
- cout<<"Both store same data.\n";
+ if(b.n2>n1)
+ cout<<"The object of class XYZ has the greater number.\n";
+ else if(b.n2<n1)
+ cout<<"The object of class ABC has the greater number.\n";
  }
 int main()
 {
- A a;B b;
- int valA, valB;cin>>valA>>valB;
- a.getData(valA);
- b.getData(valB);
+ ABC a;
+ XYZ b;
+ int p,q;
+ cin>>p>>q;
+ a.getData(p);
+ b.getData(q);
  a.compare(b);
  return 0;
 }
