@@ -1,46 +1,51 @@
 #include<iostream>
 using namespace std;
-class library
+class books
 {
- string author, book;
- float price;
+ string author,book;
+ double price;
  public:
- void getData(string a, string b, float p)
+ void getdata(string a, string b, double p)
  {
- author = a;
- book = b;
- price = p;
+ author=a;
+ book=b;
+ price=p;
  }
- friend void printRange(library *l, int n, int lower, int
-upper);
+ friend void printRange(books *s, int n, int lower_rng, int upper_rng);
 };
-void printRange(library *l, int n, int lower, int 
-upper)
+void printRange(books *s, int n, int lower_rng, int upper_rng)
 {
  for (int i = 0; i < n; i++)
  {
- if(l[i].price >= lower && l[i].price <= upper)
+ if(s[i].price >= lower_rng && s[i].price <= upper_rng)
  {
- printf("---------------------------------------------\n");
- cout<<"Author: "<<l[i].author<<"\n";
- cout<<"Book: "<<l[i].book<<"\n";
- cout<<"Price: "<<l[i].price<<"\n";
- printf("---------------------------------------------\n");
+ cout<<"Author: "<<s[i].author<<"\n";
+ cout<<"Book: "<<s[i].book<<"\n";
+ cout<<"Price: "<<s[i].price<<"\n";
  }
  }
 }
 int main()
 {
- int n;cin>>n;
- library l[n];
+ int n;
+ cout<<"Enter the number of books: ";
+ cin>>n;
+books s[n];
  for (int i = 0; i < n; i++)
  {
  string a,b;
  float p;
- cin>>a>>b>>p;
- l[i].getData(a,b,p);
+ cout<<"\nEnter the book name: ";
+ cin>>a;
+ cout<<"\nEnter the author's name: ";
+ cin>>b;
+ cout<<"\nEnter the price of book: ";
+ cin>>p;
+ s[i].getdata(a,b,p);
  }
- int lower, upper; cin>>lower>>upper;
- printRange(l, n, lower, upper);
+ int lower, upper; 
+ cout<<"Enter lower range and upper range: ";
+ cin>>lower>>upper;
+ printRange(s, n, lower, upper);
  return 0;
 }
