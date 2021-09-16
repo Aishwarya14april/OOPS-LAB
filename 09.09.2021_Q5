@@ -1,0 +1,61 @@
+#include<iostream>
+using namespace std;
+class employee
+{
+char name_429[20];
+int id_429;
+protected:
+float sal_429;
+public:
+void input()
+{
+cout<<"\nEnter the name and id of employee respectively: ";
+cin>>name_429>>id_429;
+}
+void display()
+{
+cout<<"\nName of employee: "<<name_429;
+cout<<"\nId of employee: "<<id_429;
+}
+};
+class regular:public employee
+{
+int basic_sal_429;
+float da_429,hra_429;
+public:
+void tot_sal()
+{
+cout<<"\nEnter the basic salary of employee: ";
+cin>>basic_sal_429;
+da_429=0.8*basic_sal_429;
+hra_429=0.1*basic_sal_429;
+sal_429=basic_sal_429+da_429+hra_429;
+cout<<"\nTotal salary of employee: "<<sal_429;
+}
+};
+class part_time:public employee
+{
+int hours_429,pay_per_hour_429;
+public:
+void tot_sal()
+{
+cout<<"\nEnter the total no. of working hours of emmployee and pay per hour:";
+cin>>hours_429>>pay_per_hour_429;
+sal_429=hours_429*pay_per_hour_429;
+cout<<"\nSalary per hours: "<<sal_429;
+}
+};
+int main()
+{
+regular r_429;
+part_time p_429;
+cout<<"\nFor regular employees: ";
+r_429.input();
+r_429.display();
+r_429.tot_sal();
+cout<<"\n\n\nFor part-time employees: ";
+p_429.input();
+p_429.display();
+p_429.tot_sal();
+return 0;
+}
