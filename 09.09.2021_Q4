@@ -1,0 +1,84 @@
+#include<iostream>
+#include<string.h>
+#include<cmath>
+using namespace std;
+class shape
+{
+    protected:
+    double area_429;
+    public:
+    void display()
+    {
+        cout<<area_429<<endl;
+    }
+};
+class circle: public shape
+{
+    double r_429;
+    public:
+    void getdata(double a_429)
+    {
+        r_429=a_429;
+    }
+    void cal()
+    {
+        area_429=3.14*r_429*r_429;
+    }
+};
+class triangle: public shape
+{
+    double a_429,b_429,c_429;
+    public:
+    void getdata(double s1_429,double s2_429,double s3_429)
+    {
+        a_429=s1_429;
+        b_429=s2_429;
+        c_429=s3_429;
+    }
+    void cal()
+    {
+        double s_429;
+        s_429=(a_429+b_429+c_429)/2;
+        area_429=sqrt(s_429*(s_429-a_429)*(s_429-b_429)*(s_429-c_429));
+    }
+};
+class rectangle: public shape
+{
+    double l_429,b_429;
+    public:
+    void getdata(double a_429,double b_429)
+    {
+        l_429=a_429;
+        b_429=b_429;
+    }
+    void cal()
+    {
+        area_429=l_429*b_429;
+    }
+};
+int main()
+{
+    double a_429,s1_429,s2_429,s3_429,l_429,b_429;
+    circle obj1;
+    triangle obj2;
+    rectangle obj3;
+    cout<<"Enter radius of circle: ";
+    cin>>a_429;
+    obj1.getdata(a_429);
+    obj1.cal();
+    cout<<"\nEnter 3 sides of a circle: ";
+    cin>>s1_429>>s2_429>>s2_429;
+    obj2.getdata(s1_429,s2_429,s3_429);
+    obj2.cal();
+    cout<<"\nEnter length and breadth of rectangle: ";
+    cin>>l_429>>b_429;
+    obj3.getdata(l_429,b_429);
+    obj3.cal();
+    cout<<"\nAREA OF CIRCLE: ";
+    obj1.shape::display();
+    cout<<"\nAREA OF TRIANGLE: ";
+    obj2.shape::display();
+    cout<<"\nAREA OF RECTANGLE: ";
+    obj3.shape::display();
+    return 0;
+}
