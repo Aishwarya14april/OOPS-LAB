@@ -1,0 +1,51 @@
+#include<iostream>
+#include<string.h>
+using namespace std;
+class student
+{
+    char name[50];
+    int roll,age;
+    public:
+    void getdata(char* a,int b,int c)
+    {
+        strcpy(name,a);
+        roll=b;
+        age=c;
+    }
+    void display()
+    {
+        cout<<"NAME: "<<name<<endl;
+        cout<<"ROLL: "<<roll<<endl;
+        cout<<"AGE: "<<age<<endl;
+    }
+};
+class test:public student
+{
+    double marks[5];
+    public:
+    void getdata()
+    {
+        cout<<"\nEnter marks in 5 subjects: ";
+        for(int i=0;i<5;i++)
+        cin>>marks[i];
+    }
+    void display()
+    {
+        cout<<"MARKS: ";
+        for(int i=0;i<5;i++)
+        cout<<marks[i]<<endl;
+    }
+};
+int main()
+{
+    test obj;
+    char a[50];
+    int b,c;
+    cout<<"Enter name,roll no. and age: ";
+    cin>>a>>b>>c;
+    obj.student::getdata(a,b,c);
+    obj.getdata();
+    obj.student::display();
+    obj.display();
+    return 0;
+}
