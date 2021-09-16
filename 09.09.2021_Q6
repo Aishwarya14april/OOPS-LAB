@@ -1,0 +1,116 @@
+#include<iostream>
+#include<string.h>
+using namespace std;
+class cricketer
+{
+  char name[50];
+  int age, jersy_no, odi_played;
+  public:
+  void getdata1 ()
+  {
+      cout<<"Enter name: ";
+    cin>>name;
+    cout<<"\nEnter age: ";
+    cin>>age;
+    cout<<"\nEnter jersy number: ";
+    cin>>jersy_no;
+    cout<<"\nEnter number of odi's played: ";
+    cin>>odi_played;
+  }
+  void display1 ()
+  {
+    cout << "NAME: " << name;
+    cout << "\nAGE: " << age;
+    cout << "\nJERSY NO: " << jersy_no;
+    cout << "\nODI's PLAYED: " << odi_played;
+  }
+};
+
+class batsman:public cricketer
+{
+  int runstaken, half_cent, cent, six, six_longest;
+  double batting_avg, strike_rate, highest;
+  char handed;
+  public:
+  void getdata2 ()
+  {
+    cout << "\nEnter runs taken: ";
+    cin >> runstaken;
+    cout << "\nEnter batting average: ";
+    cin >> batting_avg;
+    cout << "\nEnter no. of half centuries: ";
+    cin >> half_cent;
+    cout << "\nEnter no. of centuries: ";
+    cin >> cent;
+    cout << "\nEnter strike rate: ";
+    cin >> strike_rate;
+    cout << "\nEnter highest score: ";
+    cin >> highest;
+    cout << "\nEnter handed(R/L): ";
+    cin >> handed;
+    cout << "\nEnter no. of sixes: ";
+    cin >> six;
+    cout << "\nEnter six longest: ";
+    cin >> six_longest;
+  }
+  void display2 ()
+  {
+    cout << "RUNS TAKEN: " << runstaken;
+    cout << "BATTING AVERAGE: " << batting_avg;
+    cout << "NO. OF HALF CENTURIES: " << half_cent;
+    cout << "NO. OF CENTURIES: " << cent;
+    cout << "STRIKE RATE: " << strike_rate;
+    cout << "HIGHEST SCORE: " << highest;
+    cout << "HANDED: " << handed;
+    cout << "NO. OF SIXES: " << six;
+    cout << "SIX LONGEST: " << six_longest;
+  }
+};
+
+class baller:public cricketer
+{
+  char type[5], handed;
+  int wickets;
+  double runrate, speed, economy;
+  public:
+  void getdata3()
+  {
+    cout << "\nEnter type(pace/spin): ";
+    cin >> type;
+    cout << "\nEnter no. of wickets taken: ";
+    cin >> wickets;
+    cout << "\nEnter runrate: ";
+    cin >> runrate;
+    cout << "\nEnter speed: ";
+    cin >> speed;
+    cout << "\nEnter economy: ";
+    cin >> economy;
+    cout << "\nEnter handed(R/L): ";
+    cin >> handed;
+  }
+  void display3()
+  {
+     cout << "\nType: "<<type;
+    cout << "\nNo. of wickets taken: "<<wickets;
+    cout << "\nRunrate: "<<runrate;
+    cout << "\nSpeed: "<<speed;
+    cout << "\nEconomy: "<<economy;
+    cout << "\nHanded: "<<handed;
+  }
+};
+int main()
+{
+    batsman obj1;
+    baller obj2;
+    obj1.getdata1();
+    obj1.getdata2();
+    obj2.getdata1();
+    obj2.getdata3();
+    cout << "\nINFORMATION about Batsman\n";
+    obj1.display1();
+    obj1.display2();
+    cout << "\nINFORMATION about Baller\n";
+    obj2.display1();
+    obj2.display3();
+    return 0;
+}
