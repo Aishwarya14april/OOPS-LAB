@@ -1,0 +1,109 @@
+#include<iostream>
+#include<string.h>
+using namespace std;
+class student
+{
+    char name_429[50];
+    int roll_429,age_429;
+    public:
+    void getdata(char* a_429,int b_429,int c_429)
+    {
+        strcpy(name_429,a_429);
+        roll_429=b_429;
+        age_429=c_429;
+    }
+    void display()
+    {
+        cout<<"NAME: "<<name_429<<endl;
+        cout<<"ROLL: "<<roll_429<<endl;
+        cout<<"AGE: "<<age_429<<endl;
+    }
+};
+class test:virtual public student
+{
+    protected:
+    double marks_429[5];
+    public:
+    void getdata()
+    {
+        cout<<"\nEnter marks in 3 subjects: ";
+        for(int i_429=0;i_429<3;i_429++)
+        cin>>marks_429[i_429];
+    }
+    void display()
+    {
+        cout<<"MARKS: ";
+        for(int i_429=0;i_429<3;i_429++)
+        cout<<marks_429[i_429]<<endl;
+    }
+};
+class activities:virtual public student
+    {
+    protected:
+    double act_429[2];
+    public:
+    void getdata()
+    {
+        cout<<"\nEnter marks in 2 activities";
+        for(int i_429=0;i_429<2;i_429++)
+        cin>>act_429[i_429];
+    }
+    void display()
+    {
+        cout<<"MARKS: ";
+        for(int i_429=0;i_429<2;i_429++)
+        cout<<act_429[i_429]<<endl;
+    }
+};
+class result:public test,public activities
+{
+    double total_429,perc_429;
+    char grade_429;
+    public:
+    void cal()
+    {
+    for(int i_429=0;i_429<3;i_429++)
+    {
+        total_429=total_429+marks_429[i_429];
+    }
+    for(int i_429=0;i_429<2;i_429++)
+    {
+        total_429=total_429+act_429[i_429];
+    }
+    perc_429=total_429/5;
+    if(perc_429>=90 && perc_429<=100)
+    grade_429='O';
+    else if(perc_429>=80 && perc_429<=90)
+    grade_429='E';
+    else if(perc_429>=70 && perc_429<=80)
+    grade_429='A';
+    else if(perc_429>=60 && perc_429<=70)
+    grade_429='B';
+    else if(perc_429>=50 && perc_429<=40)
+    grade_429='C';
+    else grade_429='F';
+    }
+    void display()
+    {
+        cout<<"TOTAL: "<<total_429<<endl;
+        cout<<"PERCENTAGE: "<<perc_429<<endl;
+        cout<<"GRADE: "<<grade_429<<endl;
+    }
+};
+int main()
+{
+    result obj_429;
+    char a_429[50];
+    int b_429,c_429;
+    cout<<"Enter name,roll no. and age: ";
+    cin>>a_429>>b_429>>c_429;
+    obj_429.student::getdata(a_429,b_429,c_429);
+    obj_429.test::getdata();
+    obj_429.activities::getdata();
+    obj_429.cal();
+    obj_429.student::display();
+    obj_429.test::display();
+    obj_429.activities::display();
+    obj_429.display();
+    return 0;
+}
