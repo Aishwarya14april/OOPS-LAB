@@ -1,0 +1,24 @@
+#include <iostream>
+using namespace std;
+class A_429
+{
+static int count_429;
+public:
+A_429()
+{
+count_429++;
+cout<<"The constructor is invoked here for the no. "<<count_429<<" object.\n";
+}~A_429()
+{
+cout<<"The destructor is invoked here for the no. "<<count_429<<" object.\n";
+count_429--;
+}
+};
+int A_429::count_429;
+int main()
+{
+cout<<"We are in the main function.\n";
+A_429 a1_429,a2_429;
+A_429 a3_429;
+return 0;
+}
