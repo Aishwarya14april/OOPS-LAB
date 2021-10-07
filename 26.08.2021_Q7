@@ -1,0 +1,94 @@
+#include <iostream>
+using namespace std;
+class Books_429
+{
+string author_429, title_429, publisher_429;
+int price_429, stock_429;
+public:
+Books_429()
+{}
+Books_429(string a_429, string t_429, string p_429, int m_429, int
+s_429)
+{
+author_429 = a_429;
+title_429 = t_429;
+publisher_429 = p_429;
+price_429 = m_429;
+stock_429 = s_429;
+}
+friend void searchBooks_429(Books_429 *b_429, int n_429, string
+t_429, string a_429);
+};
+void searchBooks_429(Books_429 *b_429, int n_429, string t_429, string a_429)
+{
+for (int i = 0; i < n_429; i++)
+{
+if (b_429[i].author_429 == a_429 && b_429[i].title_429 == t_429)
+{
+if (b_429[i].stock_429 <= 0)
+{
+cout << "BOOK NOT FOUND\n";
+}
+else
+{
+cout << b_429[i].title_429 << " by " << b_429[i].author_429 << " published by " << b_429[i].publisher_429 << "\n";
+cout << "Cost : " << b_429[i].price_429 << "\n";
+cout << "Enter the required amount of books : ";
+int no_429;
+cin >> no_429;
+if (b_429[i].stock_429 >= no_429)
+{
+int bill = no_429 * b_429[i].price_429;
+cout << "Your bill is : " << bill << "\n";
+b_429[i].stock_429 -= no_429;
+cout << "Visit again :)\n";
+}
+}
+}
+else{
+cout << "Required copies not available";
+}
+if (i == n_429 - 1)
+{
+cout << "BOOK NOT AVAILABLE\n";
+return;
+}
+}
+}
+int main()
+{
+int n_429;
+cout<<"Enter the total number of distinct books available in the
+book store :-";
+cin >> n_429;
+Books_429 *b_429 = new Books_429[n_429];
+for (int i = 0; i < n_429; i++)
+{
+cout<<"\n===============================================
+=================\n";
+string a_429, t_429, p_429; int m_429, s_429;
+cout<<"\nEnter the price and stock of the book :- "; cin >>
+m_429 >> s_429;
+cout<<"\n";
+getchar();
+cout<<"\nEnter the name of the author of the book :- "; getline(cin, a_429);
+cout<<"\n";
+cout<<"\nEnter the name of the book :- "; getline(cin, t_429);
+cout<<"\n";
+cout<<"\nEnter the publisher name of the book :- "; getline(cin, p_429);
+b_429[i] = Books_429(a_429, t_429, p_429, m_429, s_429);
+}
+string st_429,sa_429;
+cout<<"\n===============================================
+=================\n";
+cout<<"Enter the name of the book you wish to search :- ";
+getline(cin, st_429);
+cout<<"Enter the name of the author of the book you wish to
+search :- "; getline(cin, sa_429);
+cout<<"\n===============================================
+=================\n";
+searchBooks_429(b_429 ,n_429, st_429, sa_429);
+cout<<"\n===============================================
+=================\n";
+return 0;
+}
