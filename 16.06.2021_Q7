@@ -1,0 +1,98 @@
+#include<iostream>
+#include<string.h>
+using namespace std;
+class batsman
+{
+  int runstaken_429, half_cent_429,cent_429;
+  double batting_avg_429, strike_rate_429;
+  public:
+  batsman()
+{
+    cout << "\nEnter runs taken: ";
+    cin >> runstaken_429;
+    cout << "\nEnter batting average: ";
+    cin >> batting_avg_429;
+    cout << "\nEnter no. of half centuries: ";
+    cin >> half_cent_429;
+    cout << "\nEnter no. of centuries: ";
+    cin >> cent_429;
+    cout << "\nEnter strike rate: ";
+    cin >> strike_rate_429;
+  }
+  void display1 ()
+  {
+    cout << "\nRUNS TAKEN: " << runstaken_429;
+    cout << "\nBATTING AVERAGE: " << batting_avg_429;
+    cout << "\nNO. OF HALF CENTURIES: " << half_cent_429;
+    cout << "\nNO. OF CENTURIES: " << cent_429;
+    cout << "\nSTRIKE RATE: " << strike_rate_429;
+  }
+};
+
+class baller
+{
+  char type_429[5];
+  int wickets_429;
+  double runrate_429, speed_429,best_429,hatricks_429;
+  public:
+  baller()
+  {
+    cout << "\nEnter type(pace/spin): ";
+    cin >> type_429;
+    cout << "\nEnter no. of wickets taken: ";
+    cin >> wickets_429;
+    cout << "\nEnter runrate: ";
+    cin >> runrate_429;
+    cout << "\nEnter speed: ";
+    cin >> speed_429;
+    cout << "\nEnter best figure: ";
+    cin >> best_429;
+    cout << "\nEnter number of hatricks: ";
+    cin >> hatricks_429;
+  }
+  void display2()
+  {
+     cout << "\nType: "<<type_429;
+    cout << "\nNo. of wickets taken: "<<wickets_429;
+    cout << "\nRunrate: "<<runrate_429;
+    cout << "\nSpeed: "<<speed_429;
+    cout << "\nBest figure: "<<best_429;
+    cout << "\nNo. of Hatricks: "<<hatricks_429;
+  }
+};
+class allrounder:public batsman,public baller
+{
+    int man_of_match_429,international_match_429,catches_429,rank_429;
+    public:
+    allrounder():batsman(),baller()
+    {
+        cout<<"\nEnter the no. of man of the match: ";
+        cin>>man_of_match_429;
+        cout<<"\nEnter the no. of international matches played: ";
+        cin>>international_match_429;
+        cout<<"\nEnter the no. of catches: ";
+        cin>>catches_429;
+        cout<<"\nEnter the ICC ranking: ";
+        cin>>rank_429;
+    }
+    void display3()
+    {
+        cout<<"\nNo. of man of the match: "<<man_of_match_429<<endl;
+        cout<<"No.of international matches played: "<<international_match_429<<endl;
+        cout<<"No. of catches: "<<catches_429<<endl;
+        cout<<"ICC ranking: "<<rank_429<<endl;
+    }
+};
+int main()
+{
+    allrounder obj_429;
+    cout << "\nINFORMATION about Batsman\n";
+    obj_429.display1();
+    cout << "\nINFORMATION about Baller\n";
+    obj_429.display2();
+    cout << "\nINFORMATION about Allrounder\n";
+    obj_429.display1();
+    obj_429.display2();
+    obj_429.display3();
+    return 0;
+}
