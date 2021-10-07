@@ -1,0 +1,61 @@
+#include<iostream>
+#include<string.h>
+using namespace std;
+class employee
+{
+char name_429[20];
+int id_429;
+protected:
+float sal_429;
+public:
+employee(char *a_429,int b_429)
+{
+strcpy(a_429,name_429);
+id_429=b_429;
+}
+void display()
+{
+cout<<"\nName of employee: "<<name_429;
+cout<<"\nId of employee: "<<id_429;
+}
+};
+class regular:public employee
+{
+int basic_sal_429;
+float da_429,hra_429;
+public:
+regular(char *a_429,int b_429,float basic_sal_429):employee(a_429,b_429)
+{
+da_429=0.8*basic_sal_429;
+hra_429=0.1*basic_sal_429;
+sal_429=basic_sal_429+da_429+hra_429;
+cout<<"\nTotal salary of employee: "<<sal_429;
+}
+};
+class part_time:public employee
+{
+int hours_429,pay_per_hour_429;
+public:
+part_time(char *a_429,int b_429,int hours_429,int pay_per_hour_429):employee(a_429,b_429)
+{
+sal_429=hours_429*pay_per_hour_429;
+cout<<"\nSalary per hours: "<<sal_429;
+}
+};
+int main()
+{
+char a_429[50];
+int b_429,e_429,f_429;
+float c_429;
+cout<<"\nEnter employee name and id no. :";
+cin>>a_429>>b_429;
+cout<<"\nEnter the basic salary of employee: ";
+cin>>c_429;
+cout<<"\nEnter the total no. of working hours of emmployee and pay per hour:";
+cin>>e_429>>f_429;
+cout<<"\nFor regular employees: ";
+regular r_429(char *a_429,int b_429,float c_429);
+cout<<"\n\n\nFor part-time employees: ";
+part_time p_429(char *a_429,int b_429,int e_429,int f_429);
+return 0;
+}
