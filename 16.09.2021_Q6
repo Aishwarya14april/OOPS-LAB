@@ -1,0 +1,113 @@
+#include<iostream>
+#include<string.h>
+using namespace std;
+class cricketer
+{
+  char name_429[50];
+  int age_429, jersy_no_429, odi_played_429;
+  public:
+  cricketer ()
+  {
+      cout<<"Enter name: ";
+    cin>>name_429;
+    cout<<"\nEnter age: ";
+    cin>>age_429;
+    cout<<"\nEnter jersy number: ";
+    cin>>jersy_no_429;
+    cout<<"\nEnter number of odi's played: ";
+    cin>>odi_played_429;
+  }
+  void display1 ()
+  {
+    cout << "NAME: " << name_429;
+    cout << "\nAGE: " << age_429;
+    cout << "\nJERSY NO: " << jersy_no_429;
+    cout << "\nODI's PLAYED: " << odi_played_429;
+  }
+};
+
+class batsman:public cricketer
+{
+  int runstaken_429, half_cent_429, cent_429, six_429, six_longest_429;
+  double batting_avg_429, strike_rate_429, highest_429;
+  char handed_429;
+  public:
+  batsman ()
+  {
+    cout << "\nEnter runs taken: ";
+    cin >> runstaken_429;
+    cout << "\nEnter batting average: ";
+    cin >> batting_avg_429;
+    cout << "\nEnter no. of half centuries: ";
+    cin >> half_cent_429;
+    cout << "\nEnter no. of centuries: ";
+    cin >> cent_429;
+    cout << "\nEnter strike rate: ";
+    cin >> strike_rate_429;
+    cout << "\nEnter highest score: ";
+    cin >> highest_429;
+    cout << "\nEnter handed(R/L): ";
+    cin >> handed_429;
+    cout << "\nEnter no. of sixes: ";
+    cin >> six_429;
+    cout << "\nEnter six longest: ";
+    cin >> six_longest_429;
+  }
+  void display2 ()
+  {
+    cout << "RUNS TAKEN: " << runstaken_429;
+    cout << "BATTING AVERAGE: " << batting_avg_429;
+    cout << "NO. OF HALF CENTURIES: " << half_cent_429;
+    cout << "NO. OF CENTURIES: " << cent_429;
+    cout << "STRIKE RATE: " << strike_rate_429;
+    cout << "HIGHEST SCORE: " << highest_429;
+    cout << "HANDED: " << handed_429;
+    cout << "NO. OF SIXES: " << six_429;
+    cout << "SIX LONGEST: " << six_longest_429;
+  }
+};
+
+class baller:public cricketer
+{
+  char type_429[5], handed_429;
+  int wickets_429;
+  double runrate_429, speed_429, economy_429;
+  public:
+  baller()
+  {
+    cout << "\nEnter type(pace/spin): ";
+    cin >> type_429;
+    cout << "\nEnter no. of wickets taken: ";
+    cin >> wickets_429;
+    cout << "\nEnter runrate: ";
+    cin >> runrate_429;
+    cout << "\nEnter speed: ";
+    cin >> speed_429;
+    cout << "\nEnter economy: ";
+    cin >> economy_429;
+    cout << "\nEnter handed(R/L): ";
+    cin >> handed_429;
+  }
+  void display3()
+  {
+     cout << "\nType: "<<type_429;
+    cout << "\nNo. of wickets taken: "<<wickets_429;
+    cout << "\nRunrate: "<<runrate_429;
+    cout << "\nSpeed: "<<speed_429;
+    cout << "\nEconomy: "<<economy_429;
+    cout << "\nHanded: "<<handed_429;
+  }
+};
+int main()
+{
+    cricketer obj1_429;
+    batsman obj2_429;
+    baller obj3_429;
+    cout << "\nINFORMATION about Batsman\n";
+    obj1_429.display1();
+    obj2_429.display2();
+    cout << "\nINFORMATION about Baller\n";
+    obj1_429.display1();
+    obj3_429.display3();
+    return 0;
+}
