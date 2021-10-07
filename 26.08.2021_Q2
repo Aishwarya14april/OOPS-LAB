@@ -1,0 +1,39 @@
+#include <iostream>
+using namespace std;
+class Time_429
+{
+int hour_429, minute_429;
+public:
+Time_429(int h_429, int m_429 = 0)
+{
+hour_429 = h_429;
+minute_429 = m_429;
+}
+Time_429()
+{
+hour_429 = 0;
+minute_429 = 0;
+}
+Time_429(const Time_429 &t_429)
+{
+hour_429 = t_429.hour_429;
+minute_429 = t_429.minute_429;
+}
+void display_429()
+{
+cout<<hour_429<<"hr "<<minute_429<<"min\n";
+}~Time_429()
+{
+cout<<"The destructor is invoked.\n";
+}
+};
+int main()
+{
+Time_429 t1_429, t2_429(5), t3_429(23,7);
+Time_429 t4_429 = t3_429;
+t1_429.display_429();
+t2_429.display_429();
+t3_429.display_429();
+t4_429.display_429();
+return 0;
+}
