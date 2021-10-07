@@ -1,0 +1,36 @@
+#include <iostream>
+using namespace std;
+class Test_429
+{
+int I_429;
+static int count_429;
+public:
+Test_429()
+{
+I_429 = 0;
+count_429++;
+}
+Test_429(int k_429)
+{
+I_429 = k_429;
+count_429++;
+}
+static void printCount_429()
+{
+cout<<"The constructor has been called for "<<count_429<<"
+times.\n";
+}
+};
+int Test_429::count_429;
+int main()
+{
+Test_429 a_429;
+a_429.printCount_429();
+Test_429 b_429(3);
+b_429.printCount_429();
+Test_429 c_429;
+c_429.printCount_429();
+Test_429 d_429(69);
+d_429.printCount_429();
+return 0;
+}
