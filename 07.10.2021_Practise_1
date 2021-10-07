@@ -1,0 +1,53 @@
+#include<iostream>
+using namespace std;
+class dist{
+  int feet,inches;
+  public:
+  dist()
+  {
+      feet=inches=0;
+  }
+  dist(int f,int i)
+  {
+      feet=f;
+      inches=i;
+  }
+  dist operator+(dist obj)
+  {
+        dist temp;
+        temp.inches=inches+obj.inches;
+        temp.feet=feet+obj.feet+(temp.inches/12);
+        temp.inches=temp.inches%12;
+        return temp;
+  }
+  bool operator>(dist d2);
+  void display()
+  {
+      cout<<feet<<" feet "<<inches<<" inches "<<"\n";
+  }
+};
+bool dist::operator>(dist d2)
+{
+    float t1,t2;
+    t1=feet+inches/12.0;
+    t2=d2.feet+d2.inches/12.0;
+    return(t1>t2)?true:false;
+}
+int main()
+{
+    dist res;
+    int a,b,x,y;
+    cout<<"Enter first distance: ";
+    cin>>a>>b;
+    cout<<"Enter second distance: ";
+    cin>>x>>y;
+    dist d1(a,b),d2(x,y);
+    res=d1+d2;
+    res.display();
+    if(d1>d2)
+    {
+        cout<<"dist1 is more\n";
+    }
+    else cout<<"dist1 is less than dis2\n";
+    return 0;
+}
