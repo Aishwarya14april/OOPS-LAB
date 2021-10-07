@@ -1,0 +1,37 @@
+#include<iostream>
+using namespace std;
+class unary
+{
+    int x,y,z;
+    public:
+    void getdata(int a,int b,int c);
+    void display(void);
+    void operator -();
+};
+void unary::getdata(int a,int b,int c)
+{
+    x=a;
+    y=b;
+    z=c;
+}
+void unary::display()
+{
+    cout<<x<<y<<z<<"\n";
+}
+void unary::operator -()
+{
+    x=x;
+    y=y;
+    z=z;
+}
+int main()
+{
+    unary obj;
+    int i,j,k;
+    cin>>i>>j>>k;
+    obj.getdata(i,j,k);
+    obj.display();
+    -obj;
+    obj.display();
+    return 0;
+}
