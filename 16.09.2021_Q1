@@ -1,0 +1,49 @@
+#include<iostream>
+#include<string.h>
+using namespace std;
+class student
+{
+    char name_429[50];
+    int roll_429,age_429;
+    public:
+    student(char* a_429,int b_429,int c_429)
+    {
+        strcpy(name_429,a_429);
+        roll_429=b_429;
+        age_429=c_429;
+    }
+    void display()
+    {
+        cout<<"NAME: "<<name_429<<endl;
+        cout<<"ROLL: "<<roll_429<<endl;
+        cout<<"AGE: "<<age_429<<endl;
+    }
+};
+class test:public student
+{
+    double marks_429[5];
+    public:
+    test(char* a_429,int b_429,int c_429):student(a_429,b_429,c_429)
+    {
+        cout<<"\nEnter marks in 5 subjects: ";
+        for(int i_429=0;i_429<5;i_429++)
+        cin>>marks_429[i_429];
+    }
+    void display()
+    {
+        cout<<"MARKS: ";
+        for(int i_429=0;i_429<5;i_429++)
+        cout<<marks_429[i_429]<<endl;
+    }
+};
+int main()
+{
+    char a_429[50];
+    int b_429,c_429;
+    cout<<"Enter name,roll no. and age: ";
+    cin>>a_429>>b_429>>c_429;
+    test obj(a_429,b_429,c_429);
+    obj.student::display();
+    obj.display();
+    return 0;
+}
