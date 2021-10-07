@@ -1,0 +1,44 @@
+#include<iostream>
+using namespace std;
+class time1
+{
+    int hr,min,sec;
+    public:
+    time1()
+    {
+        hr=0;
+        min=0;
+        sec=0;
+    }
+    void getdata()
+    {
+        cin>>hr;
+        cin>>min;
+        cin>>sec;
+    }
+    time1 operator+ (time1 obj)
+    {
+        time1 temp;
+        temp.sec=sec+obj.sec;
+        temp.min=min+obj.min+(temp.sec/60);
+        temp.sec=temp.sec%60;
+        temp.hr=hr+obj.hr+(temp.min/60);
+        temp.min=temp.min%60;
+        return temp;
+    }
+    void print()
+    {
+        cout<<hr<<" hours "<<min<<" min "<<sec<<" sec ";
+    }
+};
+int main()
+{
+    time1 obj1,obj2,res;
+    cout<<"Enter first time: ";
+    obj1.getdata();
+    cout<<"Enter second time: ";
+    obj2.getdata();
+    res=obj1+obj2;
+    res.print();
+    return 0;
+}
