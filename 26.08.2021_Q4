@@ -1,0 +1,74 @@
+#include <iostream>
+using namespace std;
+class X_429
+{
+int *p_429;
+int size_429;
+public: X_429()
+{
+p_429 = new int[3] {1,2,3};
+size_429 = 3;
+}
+X_429(int n_429)
+{
+p_429 = new int[n_429];
+for (int i = 0; i < n_429; i++)
+{
+cin>>p_429[i];
+}
+size_429 = n_429;
+}
+X_429(const X_429 &x_429)
+{
+p_429 = x_429.p_429;
+size_429 = x_429.size_429;
+}
+X_429(int *a_429, int n_429)
+{
+p_429 = new int[n_429];
+for (int i = 0; i < n_429; i++)
+{
+p_429[i] = a_429[i];
+}
+size_429 = n_429;
+}
+void add(X_429 &a_429, X_429 &b_429)
+{
+size_429 = a_429.size_429 + b_429.size_429;
+free(p_429);
+p_429 = new int[size_429];
+for (int i = 0; i < a_429.size_429; i++)
+{
+p_429[i] = a_429.p_429[i];
+}
+int z_429 = 0;
+for (int i = a_429.size_429; i < size_429; i++)
+{
+p_429[i] = b_429.p_429[z_429]; z_429++;
+}
+}~X_429()
+{
+cout<<"The destructor is invoked.\n";
+}
+void display_429()
+{
+for (int i = 0; i < size_429; i++)
+{
+cout<<p_429[i]<<" ";
+}
+cout<<"\n";
+}
+};
+int main()
+{
+int n_429;
+cin>>n_429;
+X_429 a_429(n_429);
+a_429.display_429();
+X_429 b_429;
+b_429.display_429();
+X_429 c_429;
+c_429.add(a_429,b_429);
+c_429.display_429();
+return 0;
+}
