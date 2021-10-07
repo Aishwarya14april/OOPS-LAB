@@ -1,0 +1,39 @@
+#include <iostream>
+#include <string.h>
+using namespace std;
+class mystr_429
+{
+char *p_429;
+int len_429;
+public:
+mystr_429()
+{
+p_429 = new char;
+len_429 = 0;
+}
+mystr_429(char *s_429, int n_429)
+{
+len_429 = n_429;
+p_429 = new char[len_429+1];
+strcpy(p_429, s_429);
+}~mystr_429()
+{
+cout<<"The destructor is invoked.\n";
+}
+void add(mystr_429 &b_429)
+{
+char *s_429 = new char[b_429.len_429 + len_429 - 1];
+strcpy(s_429, p_429);
+strcat(s_429, b_429.p_429);
+cout<<s_429<<"\n";
+delete[] s_429;
+}
+};
+int main()
+{
+char x_429[100], y_429[100];
+cin>>x_429>>y_429;
+mystr_429 a_429(x_429, strlen(x_429)), b_429(y_429, strlen(y_429));
+a_429.add(b_429);
+return 0;
+}
